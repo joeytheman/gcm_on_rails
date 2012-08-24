@@ -19,7 +19,7 @@ class GcmMigrationsGenerator < Rails::Generators::Base
     templates = {
       'create_gcm_devices.rb' => 'db/migrate/create_gcm_devices.rb',
       'create_gcm_notifications.rb' => 'db/migrate/create_gcm_notifications.rb',
-      'create_gcm_notification_devices.rb' => 'db/migrate/create_gcm_notification_devices.rb'
+      'create_gcm_notification_devices.rb' => 'db/migrate/create_gcm_notifications_devices.rb'
     }
 
     templates.each_pair do |name, path|

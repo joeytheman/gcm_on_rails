@@ -3,6 +3,7 @@ class Gcm::Device < Gcm::Base
 
   attr_accessible :user_id, :registration_id
   belongs_to :user
+  has_many :notifications, through: :notifications_devices
 
   validates :registration_id, :presence => true
   validates :user, :presence => true

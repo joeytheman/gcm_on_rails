@@ -6,8 +6,8 @@ class Gcm::Notification < Gcm::Base
   serialize :data
 
   attr_accessible :collapse_key, :data, :delay_while_idle, :time_to_live
-  has_many :notification_devices, :class_name => 'Gcm::NotificationDevice', :dependent => :destroy
-  has_many :devices, through: :notification_devices, source: :device
+  has_many :notifications_devices, :class_name => 'Gcm::NotificationsDevice', :dependent => :destroy
+  has_many :devices, through: :notifications_devices
 
 
   validates :collapse_key, :presence => true,  :if => :time_to_live?
@@ -19,7 +19,7 @@ class Gcm::Notification < Gcm::Base
   end
 
   def self.not_sent_devices
-    devices.merge NotificationDevice.not_sent
+    devices.merge NotificationsDevice.not_sent
   end
 
   # Class Methods
@@ -63,7 +63,7 @@ class Gcm::Notification < Gcm::Base
       notification.sent = true
       notification.save
 
-      notification.notification_devices.each_index do |notification_index|
+      notification.notifications_devices.each_index do |notification_index|
         notification_device = notification.notification_devices[notification_index]
         notification_device.response_code = response[:code]
         if response[:code] == 200
