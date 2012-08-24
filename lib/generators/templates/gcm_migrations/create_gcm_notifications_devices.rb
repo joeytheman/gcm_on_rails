@@ -1,4 +1,4 @@
-class CreateGcmNotificationDevices < ActiveRecord::Migration # :nodoc:
+class CreateGcmNotificationsDevices < ActiveRecord::Migration # :nodoc:
   def self.up
     create_table :gcm_notification_devices do |t|
       t.references :gcm_device, :null => false

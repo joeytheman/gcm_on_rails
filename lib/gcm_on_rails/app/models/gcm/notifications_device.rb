@@ -1,5 +1,5 @@
-class Gcm::NotificationDevice < Gcm::Base
-  self.table_name = "gcm_notification_devices"
+class Gcm::NotificationsDevice < Gcm::Base
+  self.table_name = "gcm_notifications_devices"
 
   attr_accessible :notification_id, :registration_id
   belongs_to :notification, :class_name => "Gcm::Notification"
