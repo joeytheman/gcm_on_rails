@@ -1,7 +1,7 @@
 class Gcm::NotificationsDevice < Gcm::Base
   self.table_name = "gcm_notifications_devices"
 
-  attr_accessible :notification_id, :registration_id
+  attr_accessible :notification_id, :device_id
   belongs_to :notification, :class_name => "Gcm::Notification"
   belongs_to :device, :class_name => 'Gcm::Device'
   validates :notification_id, :presence => true
