@@ -7,7 +7,7 @@ class Gcm::Notification < Gcm::Base
 
   attr_accessible :collapse_key, :data, :delay_while_idle, :time_to_live
   has_many :notification_devices, :class_name => 'Gcm::NotificationDevice', :dependent => :destroy
-  has_many :devices, through: :notification_devices
+  has_many :devices, through: :notification_devices, source: :device
 
 
   validates :collapse_key, :presence => true,  :if => :time_to_live?
