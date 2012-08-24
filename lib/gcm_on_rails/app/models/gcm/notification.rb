@@ -52,7 +52,7 @@ class Gcm::Notification < Gcm::Base
 
   #Instance Methods
   def not_sent_devices
-    devices.merge NotificationsDevice.not_sent
+    devices.merge Gcm::NotificationsDevice.not_sent
   end
 
   private
