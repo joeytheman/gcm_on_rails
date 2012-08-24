@@ -6,13 +6,13 @@ class CreateGcmDevices < ActiveRecord::Migration # :nodoc:
       t.timestamps
     end
 
-    add_index :gcm_notification_devices, :user_id
-    add_index :gcm_notification_devices, :registration_id
-    add_index :gcm_notification_devices, [:user_id, :registration_id], :unique => true
+    add_index :gcm_devices, :user_id
+    add_index :gcm_devices, :registration_id
+    add_index :gcm_devices, [:user_id, :registration_id], :unique => true
 
   end
 
   def self.down
-    drop_table :gcm_notification_devices
+    drop_table :gcm_devices
   end
 end
