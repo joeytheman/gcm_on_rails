@@ -18,10 +18,6 @@ class Gcm::Notification < Gcm::Base
     where sent: false
   end
 
-  def self.not_sent_devices
-    devices.merge NotificationsDevice.not_sent
-  end
-
   # Class Methods
   # Opens a connection to the Google GCM server and attempts to batch deliver
   # an Array of notifications.
@@ -52,6 +48,11 @@ class Gcm::Notification < Gcm::Base
         update_notification_from_plain_text_response(response, notification)
       end
     end
+  end
+
+  #Instance Methods
+  def not_sent_devices
+    devices.merge NotificationsDevice.not_sent
   end
 
   private
