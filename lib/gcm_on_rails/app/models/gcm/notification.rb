@@ -42,12 +42,8 @@ class Gcm::Notification < Gcm::Base
 
       response = Gcm::Connection.send_notification(notification, api_key, format)
 
-      if format == "json"
-        update_notification_from_json_response(response, notification)
-      else   #format is plain text
-        update_notification_from_plain_text_response(response, notification)
-      end
-    end
+      update_notification_from_json_response(response, notification)
+     end
   end
 
   #Instance Methods
