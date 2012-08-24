@@ -59,7 +59,7 @@ class Gcm::Notification < Gcm::Base
       notification.sent_at = Time.now
       notification.sent = true
       notification.save
-
+      binding.pry
       notification.notifications_devices.each_index do |notification_index|
         notification_device = notification.notifications_devices[notification_index]
         notification_device.response_code = response[:code]
