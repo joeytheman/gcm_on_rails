@@ -65,7 +65,7 @@ class Gcm::Notification < Gcm::Base
       notification.save
 
       notification.notifications_devices.each_index do |notification_index|
-        notification_device = notification.notification_devices[notification_index]
+        notification_device = notification.notifications_devices[notification_index]
         notification_device.response_code = response[:code]
         if response[:code] == 200
           notification_response = devices_results["results"][notification_index]
