@@ -4,7 +4,7 @@ class Gcm::Device < Gcm::Base
   attr_accessible :user_id, :registration_id
   belongs_to :user
   has_many :notifications_devices, class_name: 'Gcm::NotificationsDevice', dependent: :destroy
-  has_many :notifications, through: :notifications_devices
+  has_many :notifications, through: :notifications_devices, class_name: 'Gcm::Notification'
 
   validates :registration_id, :presence => true
   validates :user, :presence => true
