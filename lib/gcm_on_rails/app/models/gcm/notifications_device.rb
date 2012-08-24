@@ -3,6 +3,7 @@ class Gcm::NotificationsDevice < Gcm::Base
 
   attr_accessible :notification_id, :registration_id
   belongs_to :notification, :class_name => "Gcm::Notification"
+  belongs_to :device, class_name: 'Gcm::Device'
   validates :notification_id, :presence => true
 
   # Scopes
