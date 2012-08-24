@@ -11,6 +11,14 @@ class Gcm::NotificationsDevice < Gcm::Base
     where sent: false
   end
 
+  def self.not_sent_ordered
+    not_sent.ordered
+  end
+
+  def self.ordered
+    order :id
+  end
+
   # Instance Methods
   def registration_id
     device.registration_id

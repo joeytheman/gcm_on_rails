@@ -48,7 +48,7 @@ class Gcm::Notification < Gcm::Base
 
   #Instance Methods
   def not_sent_devices
-    devices.merge Gcm::NotificationsDevice.not_sent
+    devices.merge Gcm::NotificationsDevice.not_sent_ordered
   end
 
   private
@@ -59,8 +59,8 @@ class Gcm::Notification < Gcm::Base
       notification.sent_at = Time.now
       notification.sent = true
       notification.save
-      binding.pry
-      notification.notifications_devices.each_index do |notification_index|
+
+      notification.notifications_devices.not_sent_ordered.each_index do |notification_index|
         notification_device = notification.notifications_devices[notification_index]
         notification_device.response_code = response[:code]
         if response[:code] == 200
