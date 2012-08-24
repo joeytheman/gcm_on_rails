@@ -7,7 +7,7 @@ class Gcm::NotificationsDevice < Gcm::Base
   validates :notification_id, :presence => true
 
   # Scopes
-  def not_sent
+  def self.not_sent
     where sent: false
   end
 
