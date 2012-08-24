@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "gcm_on_rails.gemspec",
     "lib/gcm_on_rails.rb",
     "lib/gcm_on_rails/app/models/gcm/base.rb",
+    "lib/gcm_on_rails/app/models/gcm/device.rb",
     "lib/gcm_on_rails/app/models/gcm/notification.rb",
     "lib/gcm_on_rails/app/models/gcm/notification_device.rb",
     "lib/gcm_on_rails/gcm_on_rails.rb",
@@ -34,6 +35,7 @@ Gem::Specification.new do |s|
     "lib/gcm_on_rails/tasks/gcm.rake",
     "lib/gcm_on_rails_tasks.rb",
     "lib/generators/gcm_migrations_generator.rb",
+    "lib/generators/templates/gcm_migrations/create_gcm_devices.rb",
     "lib/generators/templates/gcm_migrations/create_gcm_notification_devices.rb",
     "lib/generators/templates/gcm_migrations/create_gcm_notifications.rb"
   ]
