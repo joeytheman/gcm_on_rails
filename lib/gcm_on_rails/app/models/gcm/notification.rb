@@ -31,8 +31,7 @@ class Gcm::Notification < Gcm::Base
   #
   # This can be run from the following Rake task:
   #   $ rake gcm:notifications:deliver
-  def self.send_notifications
-    notifications = self.not_sent
+  def self.send_notifications(notifications = Gcm::Notification.includes(:devices).not_sent)
     api_key, format = Gcm::Connection.open, configatron.gcm_on_rails.delivery_format
     logger.warn("notifications cannot be delivered when api key is not defined") and return if api_key.blank?
     logger.warn("notifications cannot be delivered when data format is neither json or plain_text") and return unless ["json","plain_text"].include?(format)
@@ -50,10 +49,6 @@ class Gcm::Notification < Gcm::Base
   #Instance Methods
   def not_sent_devices
     devices.merge Gcm::NotificationsDevice.not_sent_ordered
-  end
-
-  def send_notification
-    Gcm::Notification.where(id: self.id).send_notifications
   end
 
   private
