@@ -33,7 +33,7 @@ class Gcm::Notification < Gcm::Base
   #   $ rake gcm:notifications:deliver
   def self.send_notifications
     notifications = self.not_sent
-    api_key, format = Gcm::Connection.open, configatron.gcm_on_rails.delivery_format
+    api_key = Gcm::Connection.open
     logger.warn("notifications cannot be delivered when api key is not defined") and return if api_key.blank?
     logger.warn("notifications cannot be delivered when data format is neither json or plain_text") and return unless ["json","plain_text"].include?(format)
     return if notifications.blank?
@@ -41,7 +41,7 @@ class Gcm::Notification < Gcm::Base
     notifications.find_each do |notification|
       logger.warn("notification #{notification.id} cannot be delivered when no device was specified") and next if notification.devices.blank?
 
-      response = Gcm::Connection.send_notification(notification, api_key, format)
+      response = Gcm::Connection.send_notification(notification, api_key)
 
       update_notification_from_json_response(response, notification)
      end

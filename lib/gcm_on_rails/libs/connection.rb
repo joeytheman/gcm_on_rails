@@ -4,7 +4,7 @@ require 'uri'
 module Gcm
   module Connection
     class << self
-      def send_notification(notification, api_key, format)
+      def send_notification(notification, api_key)
         url_string = configatron.gcm_on_rails.api_url
         url = URI.parse url_string
         http = Net::HTTP.new(url.host, url.port)
