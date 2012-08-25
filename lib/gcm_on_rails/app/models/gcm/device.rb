@@ -26,6 +26,15 @@ class Gcm::Device < Gcm::Base
     where("gcm_devices.id != ?", id)
   end
 
+  # Instance Methods
+  def updated_registration_id(new_registration_id)
+    device = Gcm::Device.new
+    device.user_id = user.id
+    device.registration_id = new_registration_id
+    device.active = true
+    device.save
+  end
+
   private
   def only_one_active(device)
     if device.active

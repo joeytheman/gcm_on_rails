@@ -78,6 +78,10 @@ class Gcm::Notification < Gcm::Base
           end
         end
         notification_device.save
+
+        if response[:registration_id]
+          notification_device.updated_registration_id(response[:registration_id])
+        end
       end
     end
   end
