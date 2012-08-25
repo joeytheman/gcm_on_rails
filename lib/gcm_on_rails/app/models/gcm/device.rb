@@ -14,6 +14,10 @@ class Gcm::Device < Gcm::Base
     where active: true
   end
 
+  def self.for_registration_id(registration_id)
+    where registration_id: registration_id
+  end
+
   def self.for_user(id)
     where user_id: id
   end
