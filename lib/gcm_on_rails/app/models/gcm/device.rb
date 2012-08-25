@@ -10,8 +10,12 @@ class Gcm::Device < Gcm::Base
   validates :user, :presence => true
 
   # Scopes
+  def self.active
+    where active: true
+  end
+
   def self.for_user(id)
-    where(user_id: id)
+    where user_id: id
   end
 
   def self.not_for(id)
