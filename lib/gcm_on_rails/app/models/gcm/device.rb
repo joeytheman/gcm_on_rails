@@ -1,7 +1,7 @@
 class Gcm::Device < Gcm::Base
   self.table_name = "gcm_devices"
   before_save :only_one_active
-  attr_accessible :user_id, :registration_id
+  attr_accessible :registration_id
   belongs_to :user
   has_many :notifications_devices, class_name: 'Gcm::NotificationsDevice', dependent: :destroy
   has_many :notifications, through: :notifications_devices
