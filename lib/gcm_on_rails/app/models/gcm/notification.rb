@@ -52,7 +52,7 @@ class Gcm::Notification < Gcm::Base
     devices.merge Gcm::NotificationsDevice.not_sent_ordered
   end
 
-  def send_notification
+  def send_gcm
     Gcm::Notification.where(id: self.id).send_notifications
   end
 
