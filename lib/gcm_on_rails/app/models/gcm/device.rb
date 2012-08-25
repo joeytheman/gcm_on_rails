@@ -37,7 +37,7 @@ class Gcm::Device < Gcm::Base
 
   private
   def only_one_active
-    if device.active
+    if active
       Gcm::Device.for_user(user_id).not_for(id).find_each do |d|
         d.active = false
         d.save
