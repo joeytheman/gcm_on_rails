@@ -5,7 +5,7 @@ module Gcm
   module Connection
     class << self
       def send_notification(notification, api_key)
-        url_string = configatron.gcm_on_rails.api_url
+        url_string = Gcm.api_url
         url = URI.parse url_string
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
@@ -23,7 +23,7 @@ module Gcm
       end
 
       def open
-        configatron.gcm_on_rails.api_key
+        Gcm.api_key
       end
     end
   end

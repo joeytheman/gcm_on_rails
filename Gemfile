@@ -1,6 +1,5 @@
 source "http://rubygems.org"
 
-gem 'configatron'
 gem 'json'
 
 group :development do
