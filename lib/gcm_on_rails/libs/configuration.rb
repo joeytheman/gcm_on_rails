@@ -1,6 +1,6 @@
 
 module Gcm
-  module Configuration
+  class Configuration
     attr_accessor :api_url, :api_key, :app_name
 
     def self.configure
