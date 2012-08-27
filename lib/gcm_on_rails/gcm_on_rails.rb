@@ -1,4 +1,3 @@
-require 'configatron'
 require 'uri'
 
 module Gcm
