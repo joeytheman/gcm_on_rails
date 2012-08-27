@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/gcm_on_rails/app/models/gcm/notification.rb",
     "lib/gcm_on_rails/app/models/gcm/notifications_device.rb",
     "lib/gcm_on_rails/gcm_on_rails.rb",
+    "lib/gcm_on_rails/libs/configuration.rb",
     "lib/gcm_on_rails/libs/connection.rb",
     "lib/gcm_on_rails/tasks/gcm.rake",
     "lib/gcm_on_rails_tasks.rb",
