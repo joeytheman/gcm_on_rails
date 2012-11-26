@@ -12,7 +12,7 @@ class Gcm::NotificationDevice < Gcm::Base
   self.table_name = "gcm_notification_devices"
 
   attr_accessible :notification_id, :registration_id
-  belongs_to :notification, :class_name => "Gcm::Notification"
+  belongs_to :notification, :class_name => "Gcm::Notification", :inverse_of => :notification_devices
   validates :registration_id, :presence => true, :uniqueness => { :scope => :notification_id }
   validates :notification_id, :presence => true
 
