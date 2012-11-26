@@ -6,7 +6,7 @@ class Gcm::Notification < Gcm::Base
   serialize :data
 
   attr_accessible :collapse_key, :data, :delay_while_idle, :time_to_live
-  has_many :notifications_devices, :class_name => 'Gcm::NotificationsDevice', :inverse_of => :notifications, :dependent => :destroy
+  has_many :notifications_devices, :class_name => 'Gcm::NotificationsDevice', :inverse_of => :notification, :dependent => :destroy
   has_many :devices, through: :notifications_devices
 
 
