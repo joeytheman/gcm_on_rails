@@ -3,7 +3,7 @@ class Gcm::Device < Gcm::Base
   before_save :only_one_active
   attr_accessible :registration_id
   belongs_to :user
-  has_many :notifications_devices, class_name: 'Gcm::NotificationsDevice', dependent: :destroy
+  has_many :notifications_devices, class_name: 'Gcm::NotificationsDevice', inverse_of: :device, dependent: :destroy
   has_many :notifications, through: :notifications_devices
 
   validates :registration_id, :presence => true
