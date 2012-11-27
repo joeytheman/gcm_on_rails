@@ -3,7 +3,7 @@ class Gcm::NotificationsDevice < Gcm::Base
 
   attr_accessible :notification_id, :device_id
   belongs_to :notification, :class_name => "Gcm::Notification", :inverse_of => :notifications_devices
-  belongs_to :device, :class_name => 'Gcm::Device'
+  belongs_to :device, :class_name => 'Gcm::Device', :inverse_of => :notifications_devices
   validates :notification_id, :presence => true
 
   # Scopes
