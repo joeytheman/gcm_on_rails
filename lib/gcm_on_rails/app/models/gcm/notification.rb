@@ -35,7 +35,6 @@ class Gcm::Notification < Gcm::Base
     notifications = self.not_sent
     api_key = Gcm::Connection.open
     logger.warn("notifications cannot be delivered when api key is not defined") and return if api_key.blank?
-    logger.warn("notifications cannot be delivered when data format is neither json or plain_text") and return unless ["json","plain_text"].include?(format)
     return if notifications.blank?
 
     notifications.find_each do |notification|
